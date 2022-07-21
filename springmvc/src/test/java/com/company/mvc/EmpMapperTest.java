@@ -1,9 +1,11 @@
 package com.company.mvc;
 
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -22,10 +24,28 @@ public class EmpMapperTest {
 	@Test
 	public void test() {
 		EmpVO param = new EmpVO();
-		param.setEmployee_id("100");
-		EmpVO result = mapper.getEmp(param);
+		param.setEmployeeId("100");
+		Map<String, Object> result = mapper.getEmp(param);
 		System.out.println(result);
-		System.out.println(result.getFirst_name());
+		System.out.println(result.get("FIRST_NAME"));
+	}
+	
+	@Test
+	public void testList() {
+		List<EmpVO> empList = mapper.getEmpList(null);
+		for (EmpVO vo : empList) {
+			System.out.println(vo.toString());
+		}
+	}
+	
+	@Test
+	public void testDynamic() {
+		EmpVO param = new EmpVO(); 
+		param.setDepartmentId("80");
+		List<EmpVO> empList = mapper.getEmpList(param);
+		for (EmpVO vo : empList) {
+			System.out.println(vo.toString());
+		}
 	}
 // Java Application Test	
 //	public static void main(String[] args) {

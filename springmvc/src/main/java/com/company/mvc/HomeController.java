@@ -2,6 +2,7 @@ package com.company.mvc;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -44,8 +45,8 @@ public class HomeController {
 	@RequestMapping("/ajax")
 	@ResponseBody
 	public EmpVO ajax(EmpVO vo) {
-		vo.setFirst_name("Kwon");
-		vo.setLast_name("YuJin");
+		vo.setFirstName("Kwon");
+		vo.setLastName("YuJin");
 		return vo;
 	}
 	
@@ -54,8 +55,15 @@ public class HomeController {
 	// Parameter는 자동으로 알아서 vo에 담김 (ex - /emp?employee_id=100)
 	public String emp(EmpVO vo, Model model) {
 		// Spring은 model을 이용하여 값 넘겨줌 (emp라는 이름으로 DB 조최 결과 넘겨줌)
+		logger.info(vo.toString());
 		model.addAttribute("emp", mapper.getEmp(vo));
 		return "emp";
+	}
+
+	@RequestMapping("/empList")
+	public String empList(Model model) {
+		model.addAttribute("empList", mapper.getEmpList(null));
+		return "empList";
 	}
 	
 }
