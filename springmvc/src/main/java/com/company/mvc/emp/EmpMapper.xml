@@ -16,11 +16,13 @@
 			</where>
 			ORDER BY 1
 	</select>
-<!-- 	<select id="getEmpByDept" parameterType="" resultType="EmpVO">
+	<select id="getEmpByDept" resultType="EmpVO">
 		SELECT *
 			FROM employees
 			<where>
-				<foreach item=></foreach>
+				<foreach item="item" collection="array" open="department_id IN (" separator="," close=")">
+					#{item}
+				</foreach>
 			</where>
-	</select> -->
+	</select>
 </mapper>

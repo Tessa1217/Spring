@@ -47,6 +47,15 @@ public class EmpMapperTest {
 			System.out.println(vo.toString());
 		}
 	}
+	
+	@Test
+	public void testForEach() {
+		String[] list = {"90", "60"};
+		List<EmpVO> empDeptList = mapper.getEmpByDept(list);
+		for (EmpVO vo: empDeptList) {
+			System.out.println(vo.toString());
+		}
+	}
 // Java Application Test	
 //	public static void main(String[] args) {
 //		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("file:src\\main\\webapp\\WEB-INF\\spring\\root-context.xml");
