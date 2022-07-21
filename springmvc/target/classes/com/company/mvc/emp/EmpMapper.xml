@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mvc.emp.EmpMapper">
+	<select id="getEmp" parameterType="com.company.mvc.emp.EmpVO" resultType="com.company.mvc.emp.EmpVO">
+		SELECT employee_id, first_name, last_name, email, hire_date, job_id, salary
+			FROM employees
+			WHERE employee_id = #{employee_id}
+	</select>
+</mapper>
