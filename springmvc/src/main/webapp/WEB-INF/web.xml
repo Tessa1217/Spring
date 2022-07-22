@@ -6,13 +6,15 @@ app_3_1.xsd" version="3.1">
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+		<param-value>classpath:config/*-context.xml</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<!-- Event 관련: application, session, request 관련 이벤트 발생 시 자동으로 리스너 호출 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+
 
 	<!-- Processes application requests -->
 	<servlet>
@@ -24,10 +26,29 @@ app_3_1.xsd" version="3.1">
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<!-- load-on-startup 설정이 있으면 클라이언트 요청이 없더라도 서버가 start될 때 자동으로 로드, 
+	읽어들이는 초기화 파라미터가 servlet context 파일 -->
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<filter> 
+    <filter-name>encodingFilter</filter-name> 
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class> 
+    <init-param> 
+       <param-name>encoding</param-name> 
+       <param-value>UTF-8</param-value> 
+    </init-param> 
+    <init-param> 
+       <param-name>forceEncoding</param-name> 
+       <param-value>true</param-value> 
+    </init-param> 
+ </filter> 
+ <filter-mapping> 
+    <filter-name>encodingFilter</filter-name> 
+    <url-pattern>/*</url-pattern> 
+ </filter-mapping> 
 
 </web-app>

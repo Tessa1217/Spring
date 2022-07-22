@@ -25,9 +25,8 @@ public class EmpMapperTest {
 	public void test() {
 		EmpVO param = new EmpVO();
 		param.setEmployeeId("100");
-		Map<String, Object> result = mapper.getEmp(param);
+		EmpVO result = mapper.getEmp(param);
 		System.out.println(result);
-		System.out.println(result.get("FIRST_NAME"));
 	}
 	
 	@Test
@@ -38,15 +37,15 @@ public class EmpMapperTest {
 		}
 	}
 	
-	@Test
-	public void testDynamic() {
-		EmpVO param = new EmpVO(); 
-		param.setDepartmentId("80");
-		List<EmpVO> empList = mapper.getEmpList(param);
-		for (EmpVO vo : empList) {
-			System.out.println(vo.toString());
-		}
-	}
+//	@Test
+//	public void testDynamic() {
+//		EmpVO param = new EmpVO(); 
+//		param.setDepartmentId("80");
+//		List<EmpVO> empList = mapper.getEmpList(param);
+//		for (EmpVO vo : empList) {
+//			System.out.println(vo.toString());
+//		}
+//	}
 	
 	@Test
 	public void testForEach() {

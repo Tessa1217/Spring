@@ -1,10 +1,13 @@
 package com.company.mvc.emp;
 
 import java.util.List;
-import java.util.Map;
 
 public interface EmpMapper {
-	public Map<String, Object> getEmp(EmpVO vo);
-	public List<EmpVO> getEmpList(EmpVO vo);
+	public EmpVO getEmp(EmpVO vo);
+	public List<DepartmentVO> getDepartmentList(); 
+	public List<EmpVO> getEmpList(EmpSearchVO vo);
 	public List<EmpVO> getEmpByDept(String[] list);
+	public int getEmpInsert(EmpVO vo);
+	public int getEmpUpdate(EmpVO vo);
+	public int empDelete(EmpVO vo);
 }

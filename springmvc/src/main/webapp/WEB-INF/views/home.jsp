@@ -6,9 +6,11 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world!
 </h1>
-
+<div>
+	<img src="images/must.png" />
+</div>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
