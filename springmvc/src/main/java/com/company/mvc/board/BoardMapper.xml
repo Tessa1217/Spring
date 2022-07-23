@@ -24,7 +24,19 @@
 							#{title},
 							#{content},
 							#{writer},
-							SYSDATE		
+							DEFAULT		
 							)
 	</insert>
+	<update id="updateBoard" parameterType="BoardVO">
+		UPDATE tbl_board
+			SET 
+				title = #{title},
+				content = #{content},
+				updatedate = DEFAULT
+			WHERE bno = #{bno}
+	</update>
+	<delete id="deleteBoard" parameterType="BoardVO">
+		DELETE FROM tbl_board
+			WHERE bno = #{bno}
+	</delete>
 </mapper>

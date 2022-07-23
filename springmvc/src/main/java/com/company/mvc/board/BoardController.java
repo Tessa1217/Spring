@@ -37,6 +37,13 @@ public class BoardController {
 	
 	@PostMapping("/boardUpdate")
 	public String boardUpdateProcess(BoardVO vo) {
+		mapper.updateBoard(vo);
+		return "redirect:boardList";
+	}
+	
+	@RequestMapping("/boardDelete")
+	public String boardDelete(BoardVO vo) {
+		mapper.deleteBoard(vo);
 		return "redirect:boardList";
 	}
 

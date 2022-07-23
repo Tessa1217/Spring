@@ -8,5 +8,6 @@ public interface BoardMapper {
 	List<BoardVO> getBoardList(BoardVO vo);
 	int insertBoard(BoardVO vo);
 	int updateBoard(BoardVO vo);
+	int deleteBoard(BoardVO vo);
 
 }
