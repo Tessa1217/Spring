@@ -41,6 +41,7 @@
 			<th>제목</th>
 			<th>작성자</th>
 			<th>작성일시</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -50,6 +51,7 @@
 			<td>${b.title}</td>
 			<td>${b.writer}</td>
 			<td><fmt:formatDate value="${b.regdate}" pattern="yyyy-MM-dd"/></td>
+			<td><button type="button" onclick="event.stopPropagation(); location.href='boardDetail?bno=${b.bno}'">상세보기</button></td>
 		</tr>
 		</c:forEach>
 	</tbody>

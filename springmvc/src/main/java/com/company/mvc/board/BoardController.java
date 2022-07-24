@@ -46,5 +46,11 @@ public class BoardController {
 		mapper.deleteBoard(vo);
 		return "redirect:boardList";
 	}
-
+	
+	@RequestMapping("/boardDetail")
+	public String boardDetail(BoardVO vo, Model model) {
+		vo = mapper.getBoard(vo);
+		model.addAttribute("board", vo);
+		return "board/boardDetail";
+	}
 }
