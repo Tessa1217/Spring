@@ -25,11 +25,10 @@
 											#{reply},
 											#{replyer}
 											)
-	
 </insert>
 <update id="update">
 	UPDATE tbl_reply
-		SET reply = #{reply}, updatedate = SYSDATE
+		SET reply = #{reply}, update_date = SYSDATE
 		WHERE rno = #{rno}
 </update>
 <delete id="delete">

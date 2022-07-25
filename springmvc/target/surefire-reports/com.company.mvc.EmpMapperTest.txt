@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.company.mvc.EmpMapperTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.149 sec <<< FAILURE!
-testList(com.company.mvc.EmpMapperTest)  Time elapsed: 0.001 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE!
+testList(com.company.mvc.EmpMapperTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)

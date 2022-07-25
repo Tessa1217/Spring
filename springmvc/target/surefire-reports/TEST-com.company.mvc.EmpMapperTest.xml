@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.company.mvc.EmpMapperTest" time="0.001" errors="3" skipped="0">
+<testsuite tests="3" failures="0" name="com.company.mvc.EmpMapperTest" time="0" errors="3" skipped="0">
   <properties>
     <property name="jansi.mode" value="strip"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/tessa/Dev/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf4233710397833994446.tmp"/>
+    <property name="classworlds.conf" value="/Users/tessa/Dev/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf5619513317995108115.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/tessa/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="jdk.debug" value="release"/>
@@ -57,7 +57,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase classname="com.company.mvc.EmpMapperTest" name="testList" time="0.001">
+  <testcase classname="com.company.mvc.EmpMapperTest" name="testList" time="0">
     <error message="Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -117,9 +117,9 @@ Caused by: java.io.FileNotFoundException: src/main/webapp/WEB-INF/spring/root-co
 	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:333)
 	... 43 more
 </error>
-    <system-out>INFO : 23:40:54 org.springframework.test.context.support.DefaultTestContextBootstrapper(getDefaultTestExecutionListenerClassNames 245) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-INFO : 23:40:54 org.springframework.test.context.support.DefaultTestContextBootstrapper(getTestExecutionListeners 174) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@45018215, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@65d6b83b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@d706f19, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@30b7c004, org.springframework.test.context.support.DirtiesContextTestExecutionListener@79efed2d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2928854b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@27ae2fd0, org.springframework.test.context.event.EventPublishingTestExecutionListener@29176cc1]
-ERROR: 23:40:54 org.springframework.test.context.TestContextManager(prepareTestInstance 252) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@30b7c004] to prepare test instance [com.company.mvc.EmpMapperTest@4c371370]
+    <system-out>INFO : 18:50:57 org.springframework.test.context.support.DefaultTestContextBootstrapper(getDefaultTestExecutionListenerClassNames 245) - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+INFO : 18:50:57 org.springframework.test.context.support.DefaultTestContextBootstrapper(getTestExecutionListeners 174) - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3964d79, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@62db0521, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1b4ae4e0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ef1a1b9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5fbdc49b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@65753040, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2954b5ea, org.springframework.test.context.event.EventPublishingTestExecutionListener@4acb2510]
+ERROR: 18:50:57 org.springframework.test.context.TestContextManager(prepareTestInstance 252) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ef1a1b9] to prepare test instance [com.company.mvc.EmpMapperTest@2b59501e]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -240,7 +240,7 @@ Caused by: java.io.FileNotFoundException: src/main/webapp/WEB-INF/spring/root-co
 	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:333)
 	... 43 more
 </error>
-    <system-out>ERROR: 23:40:54 org.springframework.test.context.TestContextManager(prepareTestInstance 252) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@30b7c004] to prepare test instance [com.company.mvc.EmpMapperTest@3e694b3f]
+    <system-out>ERROR: 18:50:57 org.springframework.test.context.TestContextManager(prepareTestInstance 252) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ef1a1b9] to prepare test instance [com.company.mvc.EmpMapperTest@6428591a]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -361,7 +361,7 @@ Caused by: java.io.FileNotFoundException: src/main/webapp/WEB-INF/spring/root-co
 	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:333)
 	... 43 more
 </error>
-    <system-out>ERROR: 23:40:54 org.springframework.test.context.TestContextManager(prepareTestInstance 252) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@30b7c004] to prepare test instance [com.company.mvc.EmpMapperTest@397fbdb]
+    <system-out>ERROR: 18:50:57 org.springframework.test.context.TestContextManager(prepareTestInstance 252) - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6ef1a1b9] to prepare test instance [com.company.mvc.EmpMapperTest@107f4980]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
