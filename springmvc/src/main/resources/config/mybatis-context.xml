@@ -11,5 +11,6 @@
       <property name="dataSource" ref="dataSource" />
       <!-- mybatis-config 파일의 위치 잡아주는거 -->
       <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+      <property name="mapperLocations" value="classpath:mapper/*.xml"/>
    </bean>
 </beans>

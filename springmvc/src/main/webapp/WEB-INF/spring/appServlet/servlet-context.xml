@@ -11,6 +11,7 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<!-- Scanning @RequestMapping -->
+	<!-- MessageConverter가 자동으로 생성되어 @ResponseBody와 @RequestBody 어노테이션을 처리 -->
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
@@ -34,8 +35,9 @@
 		<!-- Window Directory -->
 		<beans:property name="maxUploadSizePerFile" value="2097152"></beans:property>
 		<!-- Mac Directory -->
-		<!-- <beans:property name="uploadTempDir" value="file:/C:/upload/tmp"></beans:property> -->
-		<beans:property name="uploadTempDir" value="file:/Users/tessa"></beans:property>
+		<beans:property name="uploadTempDir" value="file:/C:/upload/tmp"></beans:property>
+		<!-- Window Directory -->
+		<!-- <beans:property name="uploadTempDir" value="file:/Users/tessa"></beans:property> -->
 		<beans:property name="maxInMemorySize" value="10485756"></beans:property>
 	</beans:bean>
 	

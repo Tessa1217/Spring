@@ -5,6 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	form {
+		width: 80%;
+		margin: 3% auto;
+	}
+</style>
 </head>
 <body>
 <h3>게시물 수정</h3>

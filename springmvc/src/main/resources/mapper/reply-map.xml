@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.mvc.reply.ReplyMapper">
+<select id="getList" parameterType="ReplyVO" resultType="ReplyVO">
+	SELECT rno, bno, reply, replyer, reply_date as replyDate, update_date as updateDate 
+		FROM tbl_reply
+		WHERE bno = #{bno}
+		ORDER BY 1
+</select>
+<select id="read" parameterType="ReplyVO">
+	SELECT *
+		FROM tbl_reply
+		WHERE rno = #{rno}
+</select>
+<insert id="insertReply" parameterType="ReplyVO">
+	INSERT INTO tbl_reply(
+												rno,
+												bno,
+												reply, 
+												replyer
+												)
+							VALUES (
+											seq_reply.NEXTVAL,
+											#{bno},
+											#{reply},
+											#{replyer}
+											)
+	
+</insert>
+<update id="update">
+	UPDATE tbl_reply
+		SET reply = #{reply}, updatedate = SYSDATE
+		WHERE rno = #{rno}
+</update>
+<delete id="delete">
+	DELETE 
+		FROM tbl_reply
+		WHERE rno = #{rno}
+</delete>
+</mapper>
+	
