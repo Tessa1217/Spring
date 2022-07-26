@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.app.emp.mapper.EmpMapper">
+	<select id="getEmp" parameterType="EmpVO" resultType="EmpVO">
+		SELECT employee_id, first_name,
+					last_name, email, hire_date,
+					job_id, salary, department_id
+			FROM employees
+			WHERE employee_id = #{employeeId}
+	</select>
+	<select id="getEmpList" parameterType="EmpSearchVO" resultType="EmpVO">
+		SELECT *
+			FROM employees
+			<where>
+				<if test="employeeId != null and employeeId != ''">
+					employee_id = #{employeeId}
+				</if>
+				<if test="depts != null and depts.size > 0">
+					<foreach item="dept" collection="depts" open="AND department_id IN (" separator="," close=")">
+						#{dept}
+					</foreach>
+				</if>
+				<if test="jobId != null and jobId != ''">
+					AND job_id = #{jobId}
+				</if>
+				<if test="sdt != null and sdt != ''">
+					AND hire_date >= #{sdt}
+				</if>
+				<if test="edt != null and edt != ''">
+					AND hire_date <![CDATA[<= #{edt}]]>
+				</if>
+			</where>
+			ORDER BY 1
+	</select>
+	<select id="getEmpByDept" resultType="EmpVO">
+		SELECT *
+			FROM employees
+			<where>
+				<foreach item="item" collection="array" open="department_id IN (" separator="," close=")">
+					#{item}
+				</foreach>
+			</where>
+	</select>
+	<insert id="insertEmp" parameterType="EmpVO">
+		INSERT INTO employees (
+													employee_id, 
+													first_name, 
+													last_name, 
+													email, 
+													hire_date, 
+													job_id
+													) 
+								VALUES (
+												EMPLOYEES_SEQ.NEXTVAL, 
+												#{firstName}, 
+												#{lastName}, 
+												#{email}, 
+												#{hireDate}, 
+												#{jobId}
+												)
+	</insert>
+	<!-- 
+	<insert id="getEmpInsert" parameterType="EmpVO">
+		<selectKey keyProperty="employeeId" order="BEFORE" resultType="string">
+			SELECT NVL(MAX(EMPLOYEE_ID), 0) + 1 FROM EMPLOYEES
+		</selectKey>
+		INSERT INTO employees (
+														employee_id, 
+														first_name, 
+														last_name, 
+														email, 
+														hire_date, 
+														job_id) 
+								VALUES (
+												#{employeeId}, 
+												#{firstName}, 
+												#{lastName}, 
+												#{email}, 
+												#{hireDate}, 
+												#{jobId})
+	</insert>
+	
+	 -->
+	 <update id="updateEmp" parameterType="EmpVO">
+	 	UPDATE employees
+	 		SET 
+	 			first_name = #{firstName},
+	 			last_name = #{lastName},
+	 			hire_date = #{hireDate},
+	 			email = #{email},
+	 			job_id = #{jobId}
+	 		WHERE employee_id = #{employeeId}
+	 </update>
+	 <delete id="deleteEmp" parameterType="EmpVO">
+	 	DELETE FROM employees WHERE employee_id = #{employeeId}
+	 </delete>
+</mapper>

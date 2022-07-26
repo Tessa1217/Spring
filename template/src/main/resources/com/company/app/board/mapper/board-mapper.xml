@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.app.board.mapper.BoardMapper">
+	<sql id="criteria">
+		<if test="keyword != null and keyword != ''">
+				AND ${type} = #{keyword}
+		</if>
+	</sql>
+	<select id="getBoard" parameterType="BoardVO"
+		resultType="BoardVO">
+			SELECT *
+				FROM tbl_board
+				WHERE bno = #{bno}
+	</select>
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*)
+			FROM tbl_board
+			<where>
+			bno > 0
+			<include refid="criteria"></include>
+			</where>
+	</select>
+	<select id="getBoardList" parameterType="BoardVO"
+		resultType="BoardVO">
+		<!-- SELECT *
+			FROM tbl_board
+			ORDER BY 1 -->
+		SELECT /*+ INDEX_DESC(tbl_board pk_board)*/ *
+			FROM tbl_board
+			WHERE bno > 0
+	</select>
+	<select id="getBoardListWithPaging" parameterType="Criteria" resultType="BoardVO">
+		SELECT bno, title, content, writer, regdate, updatedate
+			FROM 
+				(SELECT /*+ INDEX_DESC(tbl_board pk_board) */
+					rownum rn, bno, title, content, writer, regdate, updatedate
+					FROM tbl_board
+					WHERE <![CDATA[rownum <= #{pageNum} * #{amount}]]>
+					<if test="keyword != null and keyword != ''">
+						<include refid="criteria"></include>
+					</if>
+					)
+			WHERE rn > (#{pageNum} - 1) * #{amount}
+	</select>
+	<insert id="insertBoard" parameterType="BoardVO">
+		INSERT INTO tbl_board (
+														bno,
+														title,
+														content,
+														writer,
+														regdate
+		)
+		VALUES (
+						seq_board.NEXTVAL,
+						#{title},
+						#{content},
+						#{writer},
+						DEFAULT
+						)
+	</insert>
+	<update id="updateBoard" parameterType="BoardVO">
+		UPDATE tbl_board
+			SET
+				title = #{title},
+				content = #{content},
+				updatedate = DEFAULT
+			WHERE bno = #{bno}
+	</update>
+	<delete id="deleteBoard" parameterType="BoardVO">
+		DELETE FROM tbl_board
+			WHERE bno = #{bno}
+	</delete>
+</mapper>
