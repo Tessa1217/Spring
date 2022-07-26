@@ -75,7 +75,7 @@ public class BoardController {
 	@PostMapping("/boardUpdate")
 	public String boardUpdateProcess(BoardVO vo, RedirectAttributes rttr) {
 		if (service.updateBoard(vo)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("result", "update success");
 		}
 		;
 		return "redirect:/board/boardList";
@@ -85,7 +85,7 @@ public class BoardController {
 	@RequestMapping("/boardDelete")
 	public String boardDelete(BoardVO vo, RedirectAttributes rttr) {
 		if (service.deleteBoard(vo)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("result", "delete success");
 		}
 		return "redirect:/board/boardList";
 	}

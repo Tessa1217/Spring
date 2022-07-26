@@ -20,8 +20,17 @@ crossorigin="anonymous"></script>
 				ordering: true
 			});
 		}) */
-		
+		$(document).ready(function() {
+			let result = "<c:out value='${result}'/>";
+			console.log(result);
+			if (result != '' && result.startsWith('update')) {
+				alert("수정이 완료되었습니다.");
+			} else if (result != '' && result.startsWith('delete')) {
+				alert("삭제가 완료되었습니다.");
+			}
+		})
 		function goPage(num) {
+			$('#type').val('${pageMaker.cri.type}').prop("selected", true);
 			searchFrm.pageNum.value = num;
 			searchFrm.submit(); 
 		}
@@ -36,7 +45,7 @@ crossorigin="anonymous"></script>
 					<option value="title">제목
 					<option value="content">내용
 				</select>
-				<input name="keyword" type="text">
+				<input name="keyword" type="text" value="${pageMaker.cri.keyword}">
 				</div>
 				<button>검색</button>
 			</div>
@@ -73,14 +82,14 @@ crossorigin="anonymous"></script>
 			<div class="pull-right">
 				<ul class="pagination">
 					<c:if test="${pageMaker.prev}">
-						<li class="page-item"><a class="page-link" href="#" onclick="goPage(${pageMaker.startPage-1})">Previous</a></li>
+						<li class="page-item bg-dark"><a class="page-link bg-secondary text-white" href="#" onclick="goPage(${pageMaker.startPage-1})">Previous</a></li>
 					</c:if>
 					<c:forEach var="pageNum" begin="${pageMaker.startPage}"
 					end="${pageMaker.endPage}">
-						<li class="page-item"><a class="page-link" href="#" onclick="goPage(${pageNum})">${pageNum}</a></li>
+						<li class="page-item bg-dark"><a class="page-link bg-secondary text-white" href="#" onclick="goPage(${pageNum})" data-pageNum="${pageNum}">${pageNum}</a></li>
 					</c:forEach>
 					<c:if test="${pageMaker.next}">
-						<li class="page-item"><a class="page-link" href="#" onclick="goPage(${pageMaker.endPage + 1})">Next</a></li>
+						<li class="page-item bg-dark"><a class="page-link bg-secondary text-white" href="#" onclick="goPage(${pageMaker.endPage + 1})">Next</a></li>
 					</c:if>
 				</ul>
 			</div>
