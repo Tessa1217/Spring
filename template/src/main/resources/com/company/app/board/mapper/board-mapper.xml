@@ -3,7 +3,7 @@
 <mapper namespace="com.company.app.board.mapper.BoardMapper">
 	<sql id="criteria">
 		<if test="keyword != null and keyword != ''">
-				AND ${type} = #{keyword}
+			AND ${type} LIKE '%'||#{keyword}||'%'
 		</if>
 	</sql>
 	<select id="getBoard" parameterType="BoardVO"

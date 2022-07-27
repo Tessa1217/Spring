@@ -1,5 +1,6 @@
 package com.company.app.board;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,22 @@ public class BoardServiceTest {
 	 * service; }
 	 */
 	
+	@Test
+	public void boardList() {
+		BoardVO vo = new BoardVO();
+		service.getBoardList(vo);
+	}
 	
 	@Test
-	public void insert() {
+	public void getBoard() {
 		BoardVO vo = new BoardVO();
 		vo.setBno("4");
+		service.getBoard(vo);
+	}
+	
+	@Ignore
+	public void insert() {
+		BoardVO vo = new BoardVO();
 		vo.setTitle("테스트하는 글");
 		vo.setContent("보드 서비스 테스트하는 글입니다. 게시글 4번에 테스트합니다.");
 		vo.setWriter("유진");

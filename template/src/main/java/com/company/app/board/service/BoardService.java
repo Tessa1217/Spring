@@ -2,6 +2,8 @@ package com.company.app.board.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.company.app.common.Criteria;
 
 public interface BoardService {
@@ -13,5 +15,6 @@ public interface BoardService {
 	int insertBoard(BoardVO vo);
 	boolean updateBoard(BoardVO vo);
 	boolean deleteBoard(BoardVO vo);
+	void updateReplyCnt(@Param("bno") String bno, @Param("amount") int amount);
 
 }

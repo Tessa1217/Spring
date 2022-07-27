@@ -1,11 +1,10 @@
 package com.company.app.board.web;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -34,7 +33,7 @@ public class BoardController {
 	
 	// 페이징
 	@GetMapping("/boardList")
-	public String boardList(Model model, Criteria cri) {
+	public String boardList(Model model, @ModelAttribute("cri") Criteria cri) {
 		// 전체건수
 		int total = service.getTotalCount(cri);
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
@@ -65,9 +64,10 @@ public class BoardController {
 
 	// 수정 페이지 이동
 	@RequestMapping("/boardUpdate")
-	public String boardUpdate(BoardVO vo, Model model) {
+	public String boardUpdate(BoardVO vo, Model model, Criteria cri) {
 		vo = service.getBoard(vo);
 		model.addAttribute("board", vo);
+		model.addAttribute("cri", cri);
 		return "board/boardUpdate";
 	}
 
@@ -82,7 +82,7 @@ public class BoardController {
 	}
 
 	// 삭제
-	@RequestMapping("/boardDelete")
+	@GetMapping("/boardDelete")
 	public String boardDelete(BoardVO vo, RedirectAttributes rttr) {
 		if (service.deleteBoard(vo)) {
 			rttr.addFlashAttribute("result", "delete success");

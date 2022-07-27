@@ -49,4 +49,9 @@ public class BoardServiceImpl implements BoardService {
 	public int getTotalCount(Criteria cri) {
 		return mapper.getTotalCount(cri);
 	}
+
+	@Override
+	public void updateReplyCnt(String bno, int amount) {
+		mapper.updateReplyCnt(bno, amount);
+	}
 }

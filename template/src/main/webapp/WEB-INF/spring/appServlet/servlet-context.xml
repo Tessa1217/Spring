@@ -47,9 +47,9 @@
 		<beans:property name="maxUploadSize" value="104857560"></beans:property>
 		<beans:property name="maxUploadSizePerFile" value="2097152"></beans:property>
 		<!-- Window Directory -->
-		<!--  <beans:property name="uploadTempDir" value="file:/C:/upload/tmp"></beans:property> -->
+		<beans:property name="uploadTempDir" value="file:/C:/upload/tmp"></beans:property>
 		<!-- Mac Directory -->
-		<beans:property name="uploadTempDir" value="file:/Users/tessa"></beans:property>
+		<!-- <beans:property name="uploadTempDir" value="file:/Users/tessa"></beans:property> -->
 		<beans:property name="maxInMemorySize" value="10485756"></beans:property>
 	</beans:bean>
 	
