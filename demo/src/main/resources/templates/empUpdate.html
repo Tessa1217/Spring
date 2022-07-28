@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="fluid-container">
+	<div class="card">
+		<div class="card-body">
+			<form action="empInsert" method="POST" th:object="${emp}">
+				<div class="mb-3">
+					<label for="employeeId" class="form-label">Employee ID</label> <input
+						type="text" name="employeeId" class="form-control" 
+						id="employeeId" th:value=*{employeeId} readonly>
+				</div>
+				<div class="mb-3">
+					<label for="firstName" class="form-label">First Name</label> <input
+						type="text" name="firstName" class="form-control" id="firstName"
+						th:value=*{firstName}>
+				</div>
+				<div class="mb-3">
+					<label for="lastName" class="form-label">Last Name</label> <input
+						type="text" name="lastName" class="form-control" id="lastName"
+						th:value=*{lastName}>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label> <input
+						type="email" name="email" class="form-control" id="email"
+						th:value="*{email}">
+				</div>
+				<div class="mb-3">
+					<label for="hireDate" class="form-label">Hire Date</label> <input
+						type="date" name="hireDate" class="form-control" id="hireDate"
+						th:value="*{#dates.format(hireDate, 'yyyy-MM-dd')}">
+				</div>
+				<div class="mb-3">
+					<label for="jobId" class="form-label">Job ID</label>
+					<select id="jobId" name="jobId" th:value="${jobId}">
+						<option value="">Choose Job</option>
+						<th:block th:each="job : ${jobs}">
+						<option th:value="${job.jobId}"
+						th:text="${job.jobId}"
+						th:selected="*{jobId} == ${job.jobId}"></option>
+						</th:block>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label for="departmentId" class="form-label">Department ID</label>
+					<select id="departmentId" name="departmentId">
+						<option value="">Choose Department</option>
+						<th:block th:each="dept : ${depts}">
+						<option th:value="${dept.departmentId}"
+						th:text="${dept.departmentName}"
+						th:selected="*{departmentId} == ${dept.departmentId}"></option>
+						</th:block>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

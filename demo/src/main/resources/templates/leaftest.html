@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div {
+		width: 90%;
+		margin: 3% auto;
+	}
+	
+	.contentCtn {
+		border: 2px solid #eee;
+		padding: 2%;
+	}
+	
+	.bold {
+		font-weight: bold;
+	}
+	
+	.underline {
+		text-decoration: underline;
+	}
+	
+	table {
+		width: 50%;
+		border: 2px solid #eee;
+		border-collapse: collapse;
+		margin: 0.3%;
+	}
+	
+	th, td {
+		border: 1px solid #eee;
+	}
+</style>
+</head>
+<body>
+	<!-- escapeXml과 동일하게 태그 적용 = utext -->
+	<div>
+		<h1 th:utext="${str1}"></h1>
+	</div>
+	<div>
+		<ol>
+			<div class="contentCtn">
+			<li>태그 적용</li>
+			<ul>
+				<li th:text="${str2}"></li>
+				<li th:utext="${str2}"></li>
+			</ul>
+			</div>
+			<div class="contentCtn">
+			<li>반복 처리</li>
+			<ul>
+				<li><span th:each="emp, st :${empList}" th:text="${st.count + ' ' + emp.firstName + ' | '}"
+				th:class="${st.odd} ? 'bold' : 'underline'"></span></li>
+			</ul>
+			</div>
+			<div class="contentCtn">
+			<li>If 처리</li>
+			<table>
+				<thead>
+				<tr>
+					<th>이름</th>
+					<th>커미션</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="emp:${empList}" th:align="center">
+					<td th:if="${emp.commissionPct}" th:text="${emp.firstName + ' ' + emp.lastName}"></td>
+					<td th:if="${emp.commissionPct}" th:text="${emp.commissionPct}"></td>
+				</tr>
+				</tbody>
+			</table>
+			<table>
+				<thead>
+				<tr>
+					<th>이름</th>
+					<th>커미션</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="emp:${empList}" th:align="center">
+					<td th:text="${emp.firstName + ' ' + emp.lastName}"></td>
+					<td>
+					<span th:if="${emp.commissionPct}" th:text="${emp.commissionPct}"></span>
+					<span th:if="!${emp.commissionPct}">0</span>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			</div>
+			<div class="contentCtn">
+				<li>Thymeleaf Objects</li>
+				<ul>
+					<li>Lists</li>
+				</ul>
+			</div>
+		</ol>
+	</div>
+</body>
+</html>

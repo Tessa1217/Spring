@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.app.emp.mapper.EmpMapper">
+	<select id="getEmpList" resultType="EmpVO">
+		SELECT *
+			FROM employees
+			<where>
+				<if test="jobId != null and jobId != ''">
+					job_id = #{jobId}
+				</if>
+				<if test="departmentId != null and departmentId != ''">
+					AND department_id = #{departmentId}
+				</if>
+			</where>
+	</select>
+	<select id="getEmp" resultType="EmpVO">
+		SELECT *
+			FROM employees
+			WHERE employee_id = #{employeeId}
+	</select>
+	<insert id="empInsert">
+		INSERT INTO EMPLOYEES (employee_id, first_name, last_name,
+														email, hire_date, job_id, department_id)	
+		VALUES (employees_seq.NEXTVAL, #{firstName}, #{lastName}, 
+						#{email}, #{hireDate}, #{jobId}, #{departmentId})
+	</insert>
+	<select id="getJobs" resultType="JobVO">
+		SELECT job_id, job_title
+			FROM jobs
+	</select>
+	<select id="getDepartments" resultType="DepartmentVO">
+		SELECT department_id, department_name
+			FROM departments
+	</select>
+	<update id="empUpdate">
+		UPDATE employees
+			SET
+				first_name = #{firstName},
+				last_name = #{lastName},
+				email = #{email},
+				hire_date = #{hireDate},
+				job_id = #{jobId},
+				department_id = #{departmentId}
+			WHERE employee_id = #{employeeId}
+	</update>
+</mapper>
