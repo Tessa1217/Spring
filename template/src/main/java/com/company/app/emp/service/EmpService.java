@@ -10,5 +10,6 @@ public interface EmpService {
 	public int insertEmp(EmpVO vo);
 	public int updateEmp(EmpVO vo);
 	public int deleteEmp(EmpVO vo);
+	public List<EmpVO> getEmpDept(EmpVO vo);
 
 }

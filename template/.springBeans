@@ -10,6 +10,7 @@
 		<config>src/main/resources/config/aop-context.xml</config>
 		<config>src/main/resources/config/transaction-context.xml</config>
 		<config>src/main/resources/config/root-context.xml</config>
+		<config>src/main/resources/config/security-context.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/resources/config/datasource-context.xml</config>

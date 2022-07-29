@@ -45,5 +45,10 @@ public class EmpServiceImpl implements EmpService {
 		return mapper.deleteEmp(vo);
 	}
 
+	@Override
+	public List<EmpVO> getEmpDept(EmpVO vo) {
+		return mapper.getEmpDept(vo);
+	}
+
 
 }

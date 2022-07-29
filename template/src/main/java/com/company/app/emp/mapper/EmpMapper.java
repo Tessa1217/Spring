@@ -2,6 +2,7 @@ package com.company.app.emp.mapper;
 
 import java.util.List;
 
+import com.company.app.emp.service.DepartmentVO;
 import com.company.app.emp.service.EmpSearchVO;
 import com.company.app.emp.service.EmpVO;
 
@@ -12,4 +13,6 @@ public interface EmpMapper {
 	public int insertEmp(EmpVO vo);
 	public int updateEmp(EmpVO vo);
 	public int deleteEmp(EmpVO vo);
+	public List<EmpVO> getEmpDept(EmpVO vo);
+	public List<DepartmentVO> getDeptEmp(DepartmentVO vo);
 }
